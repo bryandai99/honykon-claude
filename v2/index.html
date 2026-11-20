@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>滙凱實業｜水，要算過才澆得準（風格二）</title>
+<meta name="description" content="滙凱實業供應 Yardian 智慧控制器與 Hunter、Rain Bird、Toro 噴灌設備，並提供水力計算支援。">
+<meta name="theme-color" content="#0B1F2A">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#0B1F2A; --navy-2:#12303F; --ink:#0B1F2A; --bg:#F4F7F8; --muted:#4A5E68;
+  --line:#D3DEE2; --cyan:#5CD3E0; --deep:#0A6A7B; --deep-dark:#07505E;
+  --on-dark:#A9BFC7; --field:#7C8F98;
+  --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--deep)}
+a:hover{color:var(--deep-dark)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+h1,h2,h3{margin:0;line-height:1.2;font-weight:900}
+p,ul{margin:0}
+section[id]{scroll-margin-top:64px}
+
+.skip{position:absolute;left:-9999px;top:8px;background:#fff;color:var(--ink);padding:10px 16px;border-radius:4px;z-index:100}
+.skip:focus{left:8px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+.mono{font-family:var(--mono);font-weight:500;letter-spacing:.08em;font-size:13px;text-transform:uppercase}
+.tag{color:var(--deep)}
+.on-dark .tag,.dark .tag{color:var(--cyan)}
+
+.btn{display:inline-block;text-decoration:none;font-weight:700;padding:15px 30px;border:2px solid transparent;font-size:16px;font-family:inherit;cursor:pointer;line-height:1.3;border-radius:2px}
+.btn-cyan{background:var(--cyan);color:var(--navy)}
+.btn-cyan:hover{background:#8BE3EC;color:var(--navy)}
+.btn-ghost{border-color:var(--on-dark);color:#fff}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08);color:#fff}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy-2);color:#fff}
+
+/* header */
+.site-header{position:sticky;top:0;z-index:50;background:var(--navy);border-bottom:1px solid #1F4252}
+.nav{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:16px}
+.brand{text-decoration:none;color:#fff;display:flex;align-items:baseline;gap:12px}
+.brand:hover{color:#fff}
+.brand-name{font-size:22px;font-weight:900;letter-spacing:.04em}
+.brand-en{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--on-dark)}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none;padding:0;margin:0}
+.nav-links a{color:#fff;text-decoration:none;font-size:15px;padding:10px 0;display:inline-block;font-weight:500}
+.nav-links a:hover{color:var(--cyan)}
+.nav-links .nav-cta{border:2px solid var(--cyan);color:var(--cyan);padding:8px 18px;border-radius:2px;font-weight:700}
+.nav-links .nav-cta:hover{background:var(--cyan);color:var(--navy)}
+.menu-btn{display:none;background:none;border:1px solid #2C566A;border-radius:2px;width:44px;height:44px;cursor:pointer;color:#fff;padding:0}
+.menu-btn svg{display:block;margin:auto}
+
+/* hero */
+.hero{background:var(--navy);color:#fff;position:relative;overflow:hidden;
+  background-image:linear-gradient(rgba(92,211,224,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(92,211,224,.07) 1px,transparent 1px);
+  background-size:48px 48px}
+.hero-grid{display:flex;flex-wrap:wrap;align-items:center;gap:40px 56px;padding:88px 0 96px}
+.hero-copy{flex:1 1 480px;min-width:0}
+.hero .mono{color:var(--cyan);margin-bottom:20px}
+.hero h1{font-size:clamp(42px,7.4vw,92px);letter-spacing:-.01em;margin-bottom:28px}
+.hero h1 span{color:var(--cyan)}
+.hero-sub{font-size:18px;color:var(--on-dark);max-width:32em;margin-bottom:36px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.hero-art{flex:1 1 340px;min-width:0;max-width:560px}
+.hero-art figcaption{margin-top:8px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--on-dark)}
+
+.brandbar{background:var(--navy-2);color:#fff;border-top:1px solid #1F4252}
+.brandbar .wrap{display:flex;flex-wrap:wrap}
+.brandbar-item{flex:1 1 200px;padding:20px 24px 20px 0;display:flex;flex-direction:column;gap:2px;border-left:1px solid #2C566A;padding-left:20px}
+.brandbar-item:first-child{border-left:0;padding-left:0}
+.brandbar-name{font-weight:900;font-size:20px;letter-spacing:.04em}
+.brandbar-role{font-size:13px;color:var(--on-dark)}
+
+/* sections */
+.section{padding:96px 0}
+.h2{font-size:clamp(30px,4vw,48px);margin:12px 0 16px}
+.lead{color:var(--muted);max-width:30em}
+
+.split{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:64px;align-items:start}
+.sticky{position:sticky;top:96px}
+
+.rows{border-bottom:1px solid var(--line)}
+.row{display:flex;flex-wrap:wrap;gap:12px 32px;padding:32px 0;border-top:1px solid var(--line);align-items:flex-start}
+.row-num{flex:0 0 48px;font-family:var(--mono);font-weight:600;color:var(--deep);font-size:15px;padding-top:6px}
+.row-title{flex:1 1 220px;min-width:0}
+.row-brand{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--deep);font-weight:600;margin-bottom:6px}
+.row-title h3{font-size:26px}
+.row-desc{flex:2 1 300px;min-width:0;color:var(--muted)}
+.row-desc ul{padding-left:18px;margin-top:10px;font-size:14px}
+.row-link{flex:0 0 auto;font-weight:700;text-decoration:none;white-space:nowrap;padding:6px 0}
+
+/* hydraulics */
+.blue{background:#E4EEF1;
+  background-image:linear-gradient(rgba(10,106,123,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(10,106,123,.09) 1px,transparent 1px);
+  background-size:32px 32px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:48px}
+.step{background:#fff;border-top:4px solid var(--deep);padding:28px 28px 32px}
+.step-num{font-family:var(--mono);font-weight:600;font-size:44px;line-height:1;color:var(--deep)}
+.step h3{font-size:22px;margin:14px 0 12px}
+.step ul{padding-left:18px;color:var(--muted);font-size:15px}
+.cta-line{margin-top:40px;display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px}
+.cta-line p{color:var(--muted)}
+
+/* applications */
+.app-row{display:flex;flex-wrap:wrap;background:#fff;border:1px solid var(--line);margin-top:32px}
+.app-row.rev{flex-direction:row-reverse}
+.app-img{flex:1 1 460px;min-width:0;position:relative;margin:0}
+.app-img img{width:100%;height:100%;min-height:260px;object-fit:cover}
+.app-img figcaption{position:absolute;left:0;bottom:0;background:var(--navy);color:#fff;font-family:var(--mono);font-size:11px;letter-spacing:.1em;padding:6px 12px}
+.app-text{flex:1 1 360px;min-width:0;padding:44px 40px;display:flex;flex-direction:column;justify-content:center;gap:12px}
+.app-text h3{font-size:28px}
+.app-text p:last-child{color:var(--muted)}
+
+/* contact */
+.dark{background:var(--navy);color:#fff}
+.dark .lead{color:var(--on-dark)}
+.contact-grid{display:flex;flex-wrap:wrap;gap:56px}
+.contact-info{flex:1 1 360px;min-width:0}
+.bigtel{display:inline-block;font-size:clamp(30px,4.6vw,52px);font-weight:900;color:var(--cyan);text-decoration:none;line-height:1.15;margin:8px 0 28px}
+.bigtel:hover{color:#fff}
+.info-list{display:flex;flex-direction:column;gap:16px;border-top:1px solid #2C566A;padding-top:24px}
+.info-label{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--on-dark)}
+.info-value{margin-top:2px}
+.info-value a{color:#fff}
+.info-value a:hover{color:var(--cyan)}
+.form{flex:1 1 420px;min-width:0;background:#fff;color:var(--ink);padding:36px;display:flex;flex-direction:column;gap:20px;border-top:4px solid var(--cyan)}
+.form h3{font-size:22px}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field-row{display:flex;flex-wrap:wrap;gap:20px}
+.field-row .field{flex:1 1 180px}
+.field label,.legend{font-size:14px;font-weight:700}
+.field input,.field textarea{border:1px solid var(--field);border-radius:2px;padding:0 12px;font-size:16px;font-family:inherit;color:var(--ink);background:#fff}
+.field input{height:46px}
+.field textarea{padding:10px 12px;resize:vertical;min-height:110px}
+fieldset{border:0;padding:0;margin:0;min-width:0}
+.legend{padding:0;margin-bottom:6px}
+.check{display:flex;align-items:center;gap:10px;min-height:44px;font-size:15px;cursor:pointer}
+.check input{width:20px;height:20px;margin:0;accent-color:var(--deep)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-status{font-size:14px;min-height:1.5em}
+.form-status.error{color:#9B2C1F}
+.form-status.ok{color:var(--deep-dark)}
+.form .btn{width:100%;min-height:50px}
+
+.site-footer{background:#07151D;color:var(--on-dark);padding:36px 0;font-size:13px}
+.site-footer p+p{margin-top:8px}
+
+@media (max-width:900px){
+  .split{grid-template-columns:minmax(0,1fr);gap:32px}
+  .sticky{position:static}
+}
+@media (max-width:860px){
+  .menu-btn{display:block}
+  .nav{flex-wrap:wrap;padding:10px 0}
+  .brand-en{display:none}
+  .nav-links{display:none;flex-direction:column;align-items:stretch;gap:0;width:100%;padding:8px 0 16px}
+  .nav-links.open{display:flex}
+  .nav-links a{display:block;padding:12px 4px;border-bottom:1px solid #1F4252}
+  .nav-links .nav-cta{margin-top:12px;text-align:center}
+  .hero-grid{padding:56px 0 64px}
+  .section{padding:64px 0}
+  .app-text{padding:28px 24px}
+  .form{padding:24px}
+  .brandbar-item{flex-basis:45%;border-left:0;padding-left:0}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到主要內容</a>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <span class="brand-name">滙凱實業</span>
+      <span class="brand-en">HONY KON</span>
+    </a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-label="開啟選單" aria-expanded="false" aria-controls="nav-links">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path id="menu-icon" d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#products">產品</a></li>
+      <li><a href="#hydraulics">水力計算</a></li>
+      <li><a href="#solutions">應用領域</a></li>
+      <li><a class="nav-cta" href="#contact">詢價</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+<span id="top"></span>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="mono">Smart Irrigation / Taipei</p>
+      <h1>水，要算過<br><span>才澆得準。</span></h1>
+      <p class="hero-sub">滙凱實業供應 Yardian 智慧控制器，以及 Hunter、Rain Bird、Toro 噴頭與電磁閥，並提供水力計算支援。</p>
+      <div class="hero-actions">
+        <a class="btn btn-cyan" href="#contact">取得規格與報價</a>
+        <a class="btn btn-ghost" href="#hydraulics">水力計算怎麼做</a>
+      </div>
+    </div>
+    <figure class="hero-art" style="margin:0">
+      <svg viewBox="0 0 480 360" role="img" aria-label="噴頭灑水範圍示意圖" width="100%" height="auto">
+        <g fill="none" stroke="#5CD3E0" stroke-linecap="round">
+          <path d="M162.1 285A90 90 0 0 1 317.9 285" stroke-width="2.5"/>
+          <path d="M110.1 255A150 150 0 0 1 369.9 255" stroke-width="2.5" opacity=".8"/>
+          <path d="M58.1 225A210 210 0 0 1 421.9 225" stroke-width="2.5" opacity=".6"/>
+          <path d="M6.2 195A270 270 0 0 1 473.8 195" stroke-width="2.5" opacity=".4"/>
+          <g stroke-width="1.5" stroke-dasharray="3 7" opacity=".7">
+            <path d="M240 330L6.2 195"/>
+            <path d="M240 330L105 96.2"/>
+            <path d="M240 330L240 60"/>
+            <path d="M240 330L375 96.2"/>
+            <path d="M240 330L473.8 195"/>
+          </g>
+          <path d="M20 330H460" stroke="#A9BFC7" stroke-width="2"/>
+        </g>
+        <circle cx="240" cy="330" r="7" fill="#5CD3E0"/>
+        <rect x="236" y="330" width="8" height="14" fill="#A9BFC7"/>
+      </svg>
+      <figcaption>FIG.01 噴頭覆蓋範圍示意</figcaption>
+    </figure>
+  </div>
+  <div class="brandbar">
+    <div class="wrap">
+      <div class="brandbar-item"><span class="brandbar-name">YARDIAN</span><span class="brandbar-role">智慧控制器</span></div>
+      <div class="brandbar-item"><span class="brandbar-name">HUNTER</span><span class="brandbar-role">噴頭 · 電磁閥</span></div>
+      <div class="brandbar-item"><span class="brandbar-name">RAIN BIRD</span><span class="brandbar-role">噴頭 · 電磁閥</span></div>
+      <div class="brandbar-item"><span class="brandbar-name">TORO</span><span class="brandbar-role">球場與大面積設備</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="products">
+  <div class="wrap split">
+    <div class="sticky">
+      <p class="mono tag">01 / 產品</p>
+      <h2 class="h2">控制器、噴頭、電磁閥，同一套配齊</h2>
+      <p class="lead">依案場規模與用途選配。需要型號對照、規格書或選型表，直接詢價。</p>
+    </div>
+    <div class="rows">
+      <div class="row">
+        <span class="row-num">A</span>
+        <div class="row-title">
+          <p class="row-brand">YARDIAN</p>
+          <h3>智慧控制器</h3>
+        </div>
+        <div class="row-desc">
+          <p>支援 Wi-Fi 與 RJ45 有線雙連線，連動氣象資料，下雨自動停止灌溉，並可用手機 App 遠端操控各區出水。</p>
+          <ul><li>住宅庭園、社區中庭</li><li>需要遠端管理的案場</li></ul>
+        </div>
+        <a class="row-link" href="#contact">詢價 →</a>
+      </div>
+      <div class="row">
+        <span class="row-num">B</span>
+        <div class="row-title">
+          <p class="row-brand">HUNTER · RAIN BIRD</p>
+          <h3>地埋彈出式噴頭</h3>
+        </div>
+        <div class="row-desc">
+          <p>不灌溉時隱藏於草坪下，不影響割草與行走；水壓驅動時彈出，抗風性佳，扇形角度可調。</p>
+          <ul><li>草坪、花圃、景觀綠地</li></ul>
+        </div>
+        <a class="row-link" href="#contact">索取選型表 →</a>
+      </div>
+      <div class="row">
+        <span class="row-num">C</span>
+        <div class="row-title">
+          <p class="row-brand">RAIN BIRD · HUNTER · TORO</p>
+          <h3>電磁閥系列</h3>
+        </div>
+        <div class="row-desc">
+          <p>依分區流量與管徑選配口徑，搭配控制器逐區啟閉，讓各區出水穩定一致。</p>
+          <ul><li>分區控制、工程配管</li></ul>
+        </div>
+        <a class="row-link" href="#contact">詢價 →</a>
+      </div>
+      <div class="row">
+        <span class="row-num">D</span>
+        <div class="row-title">
+          <p class="row-brand">TORO</p>
+          <h3>球場與大面積設備</h3>
+        </div>
+        <div class="row-desc">
+          <p>高階球場與大面積草坪使用的噴灌設備，適合對出水均勻度與耐用度要求高的專案。</p>
+          <ul><li>球場、公園、大型綠地</li></ul>
+        </div>
+        <a class="row-link" href="#contact">詢價 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section blue" id="hydraulics">
+  <div class="wrap">
+    <p class="mono tag">02 / 水力計算</p>
+    <h2 class="h2">不只供貨，也幫您算好水力</h2>
+    <p class="lead">依案場的水壓與流量需求（GPM / LPM），計算管路壓降與流速，讓每支噴頭都能發揮原廠設計的效能。</p>
+    <div class="steps">
+      <div class="step">
+        <p class="step-num">01</p>
+        <h3>您提供資料</h3>
+        <ul>
+          <li>場地平面圖或 CAD 圖</li>
+          <li>水源位置與水壓</li>
+          <li>可用流量</li>
+          <li>預計使用的設備或品牌</li>
+        </ul>
+      </div>
+      <div class="step">
+        <p class="step-num">02</p>
+        <h3>我們計算</h3>
+        <ul>
+          <li>依流量分區、配置噴頭</li>
+          <li>管徑選擇</li>
+          <li>流速與壓降校核（GPM / LPM）</li>
+        </ul>
+      </div>
+      <div class="step">
+        <p class="step-num">03</p>
+        <h3>您拿到成果</h3>
+        <ul>
+          <li>分區與噴頭配置建議</li>
+          <li>管徑、流速與壓降計算</li>
+          <li>設備清單與數量</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cta-line">
+      <a class="btn btn-navy" href="#contact">提出專案需求</a>
+      <p>適合景觀設計師、水電承包商與業主，在報價前先確認系統可行。</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="solutions">
+  <div class="wrap">
+    <p class="mono tag">03 / 應用領域</p>
+    <h2 class="h2">從住宅庭園到屋頂綠化</h2>
+    <p class="lead">以下為應用情境示意圖，用來說明系統在不同場域的配置方式。</p>
+
+    <div class="app-row">
+      <figure class="app-img">
+        <img src="../case1.webp" width="1200" height="655" loading="lazy" alt="別墅庭園草坪上地埋噴頭灑水的情境示意圖">
+        <figcaption>情境示意圖</figcaption>
+      </figure>
+      <div class="app-text">
+        <p class="mono tag">住宅別墅 · 商業中庭</p>
+        <h3>私人庭園、商場與社區中庭</h3>
+        <p>適用於私人庭園、大型商場、科技園區及住宅中庭。搭配 Yardian 的天氣連動功能，業主出差或雨季時也能由雲端自動調整灌溉。</p>
+      </div>
+    </div>
+
+    <div class="app-row rev">
+      <figure class="app-img">
+        <img src="../case2.webp" width="1200" height="655" loading="lazy" alt="高樓屋頂花園噴灌與控制系統配置的情境示意圖">
+        <figcaption>情境示意圖</figcaption>
+      </figure>
+      <div class="app-text">
+        <p class="mono tag">溫室網室 · 屋頂綠化</p>
+        <h3>溫室、植物工廠與立體綠化</h3>
+        <p>適用於植物工廠、溫室網室與高密度的垂直綠牆。配合雲端控制器精確調配水量與時間，讓末端各區出水一致。</p>
+      </div>
+    </div>
+    <!-- TODO：有實際案場照片後，可在此新增「工程實績」區塊 -->
+  </div>
+</section>
+
+<section class="section dark" id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <p class="mono tag">04 / 詢價聯絡</p>
+      <h2 class="h2">告訴我們您的案場需求</h2>
+      <p class="lead">設備零售或整案規劃都歡迎。已有型號（例如 Hunter PGP、Yardian）請填在備註。</p>
+      <a class="bigtel" href="tel:+886227760766">02-2776-0766</a>
+      <div class="info-list">
+        <div>
+          <p class="info-label">COMPANY</p>
+          <p class="info-value">滙凱實業有限公司　HONY KON INTERNATIONAL CO., LTD.</p>
+        </div>
+        <div>
+          <p class="info-label">ADDRESS</p>
+          <p class="info-value">台北市大安區忠孝東路四段162號4樓409室</p>
+        </div>
+        <div>
+          <p class="info-label">FAX</p>
+          <p class="info-value">+886-2-2741-5731</p>
+        </div>
+        <div>
+          <p class="info-label">LINE ID</p>
+          <p class="info-value">honykon</p>
+        </div>
+        <div>
+          <p class="info-label">EMAIL</p>
+          <p class="info-value"><a href="mailto:sales.honykon@msa.hinet.net">sales.honykon@msa.hinet.net</a></p>
+        </div>
+      </div>
+    </div>
+
+    <form class="form" id="inquiry-form" novalidate>
+      <h3>規格詢價與專案需求</h3>
+      <div class="field">
+        <label for="f-name">公司或業主姓名 *</label>
+        <input id="f-name" name="client_name" type="text" required autocomplete="organization">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="f-tel">聯絡電話 / 手機 *</label>
+          <input id="f-tel" name="client_phone" type="tel" required autocomplete="tel">
+        </div>
+        <div class="field">
+          <label for="f-mail">電子郵件</label>
+          <input id="f-mail" name="client_email" type="email" autocomplete="email">
+        </div>
+      </div>
+      <fieldset>
+        <legend class="legend">感興趣的設備與服務（可複選）*</legend>
+        <label class="check"><input type="checkbox" name="interest" value="Yardian 智慧網路控制器">Yardian 智慧網路控制器</label>
+        <label class="check"><input type="checkbox" name="interest" value="Rain Bird / Hunter / Toro 噴頭與硬體設備">Rain Bird / Hunter / Toro 噴頭與硬體</label>
+        <label class="check"><input type="checkbox" name="interest" value="Rain Bird / Hunter / Toro 電磁閥系列">Rain Bird / Hunter / Toro 電磁閥系列</label>
+        <label class="check"><input type="checkbox" name="interest" value="智慧噴灌系統規劃與水力計算">噴灌系統規劃與水力計算</label>
+      </fieldset>
+      <div class="field">
+        <label for="f-note">需求備註 / 詢價型號清單</label>
+        <textarea id="f-note" name="client_message" rows="4" placeholder="例如：噴頭型號與數量、案場坪數、水壓流量等"></textarea>
+      </div>
+      <div class="hp" aria-hidden="true">
+        <label>請勿填寫<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+      </div>
+      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      <button class="btn btn-navy" type="submit">送出詢價需求</button>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© 2026 滙凱實業有限公司 HONY KON INTERNATIONAL CO., LTD. 版權所有</p>
+    <p>本網頁所提及之品牌商標權均屬原註冊公司所有。</p>
+  </div>
+</footer>
+
+<script>
+// 手機版選單
+(function () {
+  var btn = document.getElementById('menu-btn');
+  var list = document.getElementById('nav-links');
+  var icon = document.getElementById('menu-icon');
+  function setOpen(open) {
+    list.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? '關閉選單' : '開啟選單');
+    icon.setAttribute('d', open ? 'M6 6l12 12M18 6L6 18' : 'M4 7h16M4 12h16M4 17h16');
+  }
+  btn.addEventListener('click', function () { setOpen(!list.classList.contains('open')); });
+  list.addEventListener('click', function (e) { if (e.target.tagName === 'A') setOpen(false); });
+})();
+
+// 詢價表單
+// 若有表單服務（例如 Formspree、Web3Forms），把網址填在下方 FORM_ENDPOINT，
+// 表單就會直接送出。留空時，會改為開啟訪客的郵件程式，內容已預先填好。
+(function () {
+  var FORM_ENDPOINT = '';
+  var MAIL_TO = 'sales.honykon@msa.hinet.net';
+
+  var form = document.getElementById('inquiry-form');
+  var status = document.getElementById('form-status');
+
+  function say(msg, cls) {
+    status.textContent = msg;
+    status.className = 'form-status ' + (cls || '');
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var data = new FormData(form);
+    if (data.get('_gotcha')) return;
+
+    var name = (data.get('client_name') || '').trim();
+    var phone = (data.get('client_phone') || '').trim();
+    var interests = data.getAll('interest');
+
+    if (!name || !phone) { say('請填寫姓名與聯絡電話。', 'error'); return; }
+    if (interests.length === 0) { say('請至少勾選一項感興趣的設備或服務。', 'error'); return; }
+
+    if (FORM_ENDPOINT) {
+      say('送出中…');
+      fetch(FORM_ENDPOINT, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+        .then(function (r) {
+          if (!r.ok) throw new Error('bad status');
+          form.reset();
+          say('已收到您的需求，我們會盡快與您聯繫。', 'ok');
+        })
+        .catch(function () {
+          say('送出失敗，請改用電話 +886-2-2776-0766 或 Email 與我們聯絡。', 'error');
+        });
+      return;
+    }
+
+    var body = [
+      '公司或業主姓名：' + name,
+      '聯絡電話：' + phone,
+      '電子郵件：' + (data.get('client_email') || ''),
+      '感興趣的項目：' + interests.join('、'),
+      '',
+      '需求備註：',
+      data.get('client_message') || ''
+    ].join('\n');
+    var url = 'mailto:' + MAIL_TO +
+      '?subject=' + encodeURIComponent('網站詢價：' + name) +
+      '&body=' + encodeURIComponent(body);
+    say('即將開啟您的郵件程式，請按寄出完成詢價。若沒有跳出，請直接寄信到 ' + MAIL_TO + '。', 'ok');
+    window.location.href = url;
+  });
+})();
+</script>
+</body>
+</html>
