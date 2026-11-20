@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex"><!-- 正式上線綁定 www.honykon.com.tw 時，刪除這行 -->
 <title>滙凱實業｜水，要算過才澆得準</title>
 <meta name="description" content="滙凱實業供應 Yardian 智慧控制器與 Hunter、Rain Bird、Toro 噴灌設備，並提供水力計算支援。">
-<meta name="theme-color" content="#0B1F2A">
+<meta name="theme-color" content="#05101A">
 <link rel="canonical" href="https://www.honykon.com.tw/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="zh_TW">
@@ -40,166 +40,189 @@
 
 <style>
 :root{
-  --navy:#0B1F2A; --navy-2:#12303F; --ink:#0B1F2A; --bg:#F4F7F8; --muted:#4A5E68;
-  --line:#D3DEE2; --cyan:#5CD3E0; --deep:#0A6A7B; --deep-dark:#07505E;
-  --on-dark:#A9BFC7; --field:#7C8F98;
+  --bg:#05101A; --bg-2:#081826; --text:#E6F3F6; --muted:#9DB4BD;
+  --cyan:#5CD3E0; --mint:#7CF5C8; --glass:rgba(255,255,255,.045); --glass-2:rgba(255,255,255,.07);
+  --edge:rgba(92,211,224,.28); --edge-strong:rgba(92,211,224,.7); --field:#4B7B8A;
+  --err:#FF9A8A;
   --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;
   --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+body{margin:0;color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;
+  background:
+    radial-gradient(900px 520px at 85% -120px,rgba(92,211,224,.17),transparent 62%),
+    radial-gradient(760px 520px at -10% 38%,rgba(124,245,200,.07),transparent 62%),
+    var(--bg)}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(rgba(92,211,224,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(92,211,224,.055) 1px,transparent 1px);
+  background-size:56px 56px;
+  -webkit-mask-image:linear-gradient(to bottom,#000,rgba(0,0,0,.25));mask-image:linear-gradient(to bottom,#000,rgba(0,0,0,.25))}
 img{max-width:100%;height:auto;display:block}
-a{color:var(--deep)}
-a:hover{color:var(--deep-dark)}
-a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+a{color:var(--cyan)}
+a:hover{color:var(--mint)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--mint);outline-offset:2px}
 h1,h2,h3{margin:0;line-height:1.2;font-weight:900}
 p,ul{margin:0}
 section[id]{scroll-margin-top:64px}
 
-.skip{position:absolute;left:-9999px;top:8px;background:#fff;color:var(--ink);padding:10px 16px;border-radius:4px;z-index:100}
+.skip{position:absolute;left:-9999px;top:8px;background:#fff;color:#05101A;padding:10px 16px;border-radius:4px;z-index:100}
 .skip:focus{left:8px}
 .wrap{max-width:1240px;margin:0 auto;padding:0 24px}
-.mono{font-family:var(--mono);font-weight:500;letter-spacing:.08em;font-size:13px;text-transform:uppercase}
-.tag{color:var(--deep)}
-.on-dark .tag,.dark .tag{color:var(--cyan)}
+.mono{font-family:var(--mono);font-weight:500;letter-spacing:.1em;font-size:13px;text-transform:uppercase}
+.tag{color:var(--cyan);display:flex;align-items:center;gap:10px}
+.tag::before{content:"";width:28px;height:1px;background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+.grad{background:linear-gradient(90deg,var(--cyan),var(--mint));-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
 
-.btn{display:inline-block;text-decoration:none;font-weight:700;padding:15px 30px;border:2px solid transparent;font-size:16px;font-family:inherit;cursor:pointer;line-height:1.3;border-radius:2px}
-.btn-cyan{background:var(--cyan);color:var(--navy)}
-.btn-cyan:hover{background:#8BE3EC;color:var(--navy)}
-.btn-ghost{border-color:var(--on-dark);color:#fff}
-.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08);color:#fff}
-.btn-navy{background:var(--navy);color:#fff}
-.btn-navy:hover{background:var(--navy-2);color:#fff}
+/* HUD 邊角框 */
+.hud{position:relative}
+.hud::before,.hud::after{content:"";position:absolute;width:16px;height:16px;border:2px solid var(--cyan);pointer-events:none;filter:drop-shadow(0 0 4px rgba(92,211,224,.7))}
+.hud::before{top:-1px;left:-1px;border-right:0;border-bottom:0}
+.hud::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
+
+.btn{display:inline-block;text-decoration:none;font-weight:700;padding:15px 30px;border:1px solid transparent;font-size:16px;font-family:inherit;cursor:pointer;line-height:1.3;border-radius:4px;transition:box-shadow .2s,background .2s,border-color .2s}
+.btn-cyan{background:linear-gradient(90deg,var(--cyan),var(--mint));color:#05101A;box-shadow:0 0 24px rgba(92,211,224,.35)}
+.btn-cyan:hover{color:#05101A;box-shadow:0 0 36px rgba(124,245,200,.55)}
+.btn-ghost{border-color:var(--edge-strong);color:var(--text);background:rgba(92,211,224,.06)}
+.btn-ghost:hover{color:#fff;border-color:var(--mint);box-shadow:0 0 20px rgba(92,211,224,.3)}
 
 /* header */
-.site-header{position:sticky;top:0;z-index:50;background:var(--navy);border-bottom:1px solid #1F4252}
+.site-header{position:sticky;top:0;z-index:50;background:rgba(5,16,26,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--edge)}
 .nav{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:16px}
-.brand{text-decoration:none;color:#fff;display:flex;align-items:baseline;gap:12px}
+.brand{text-decoration:none;color:#fff;display:flex;align-items:center;gap:12px}
 .brand:hover{color:#fff}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 10px var(--mint);animation:pulse 2.4s ease-in-out infinite}
 .brand-name{font-size:22px;font-weight:900;letter-spacing:.04em}
-.brand-en{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--on-dark)}
+.brand-en{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--muted)}
 .nav-links{display:flex;align-items:center;gap:28px;list-style:none;padding:0;margin:0}
-.nav-links a{color:#fff;text-decoration:none;font-size:15px;padding:10px 0;display:inline-block;font-weight:500}
+.nav-links a{color:var(--text);text-decoration:none;font-size:15px;padding:10px 0;display:inline-block;font-weight:500}
 .nav-links a:hover{color:var(--cyan)}
-.nav-links .nav-cta{border:2px solid var(--cyan);color:var(--cyan);padding:8px 18px;border-radius:2px;font-weight:700}
-.nav-links .nav-cta:hover{background:var(--cyan);color:var(--navy)}
-.menu-btn{display:none;background:none;border:1px solid #2C566A;border-radius:2px;width:44px;height:44px;cursor:pointer;color:#fff;padding:0}
+.nav-links .nav-cta{border:1px solid var(--edge-strong);color:var(--cyan);padding:8px 18px;border-radius:4px;font-weight:700;background:rgba(92,211,224,.08)}
+.nav-links .nav-cta:hover{background:var(--cyan);color:#05101A;box-shadow:0 0 20px rgba(92,211,224,.5)}
+.menu-btn{display:none;background:none;border:1px solid var(--edge);border-radius:4px;width:44px;height:44px;cursor:pointer;color:#fff;padding:0}
 .menu-btn svg{display:block;margin:auto}
 
 /* hero */
-.hero{background:var(--navy);color:#fff;position:relative;overflow:hidden;
-  background-image:linear-gradient(rgba(92,211,224,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(92,211,224,.07) 1px,transparent 1px);
-  background-size:48px 48px}
-.hero-grid{display:flex;flex-wrap:wrap;align-items:center;gap:40px 56px;padding:88px 0 96px}
+.hero-grid{display:flex;flex-wrap:wrap;align-items:center;gap:48px 56px;padding:92px 0 80px}
 .hero-copy{flex:1 1 480px;min-width:0}
-.hero .mono{color:var(--cyan);margin-bottom:20px}
+.hero .tag{margin-bottom:22px}
 .hero h1{font-size:clamp(42px,7.4vw,92px);letter-spacing:-.01em;margin-bottom:28px}
-.hero h1 span{color:var(--cyan)}
-.hero-sub{font-size:18px;color:var(--on-dark);max-width:32em;margin-bottom:36px}
-.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
-.hero-art{flex:1 1 340px;min-width:0;max-width:560px}
-.hero-art figcaption{margin-top:8px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--on-dark)}
+.hero-sub{font-size:18px;color:var(--muted);max-width:32em;margin-bottom:36px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+.hero-art{flex:1 1 340px;min-width:0;max-width:560px;margin:0}
+.hero-frame{background:linear-gradient(180deg,rgba(92,211,224,.08),rgba(92,211,224,.02));border:1px solid var(--edge);padding:20px;border-radius:2px}
+.hero-art figcaption{margin-top:10px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--muted)}
+.arc{stroke:var(--cyan);fill:none;stroke-width:2.5;stroke-linecap:round}
+.ray{stroke:var(--cyan);fill:none;stroke-width:1.5;stroke-dasharray:3 9;opacity:.65;animation:flow 3s linear infinite}
+.ground{stroke:#9DB4BD;stroke-width:2}
+.pulse-ring{fill:none;stroke:var(--mint);stroke-width:2;transform-box:fill-box;transform-origin:center;animation:ring 2.6s ease-out infinite}
+.svg-label{font-family:var(--mono);font-size:11px;fill:#9DB4BD;letter-spacing:.08em}
 
-.brandbar{background:var(--navy-2);color:#fff;border-top:1px solid #1F4252}
+@keyframes flow{to{stroke-dashoffset:-48}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+@keyframes ring{0%{transform:scale(1);opacity:.9}100%{transform:scale(4.2);opacity:0}}
+
+.brandbar{border-top:1px solid var(--edge);border-bottom:1px solid var(--edge);background:rgba(8,24,38,.7)}
 .brandbar .wrap{display:flex;flex-wrap:wrap}
-.brandbar-item{flex:1 1 200px;padding:20px 24px 20px 0;display:flex;flex-direction:column;gap:2px;border-left:1px solid #2C566A;padding-left:20px}
+.brandbar-item{flex:1 1 200px;padding:20px 20px 20px 24px;display:flex;flex-direction:column;gap:2px;border-left:1px solid var(--edge)}
 .brandbar-item:first-child{border-left:0;padding-left:0}
-.brandbar-name{font-weight:900;font-size:20px;letter-spacing:.04em}
-.brandbar-role{font-size:13px;color:var(--on-dark)}
+.brandbar-name{font-weight:900;font-size:20px;letter-spacing:.06em}
+.brandbar-role{font-size:13px;color:var(--muted)}
 
 /* sections */
-.section{padding:96px 0}
-.h2{font-size:clamp(30px,4vw,48px);margin:12px 0 16px}
-.lead{color:var(--muted);max-width:30em}
+.section{padding:100px 0}
+.h2{font-size:clamp(30px,4vw,48px);margin:14px 0 16px}
+.lead{color:var(--muted);max-width:34em}
 
-.split{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:64px;align-items:start}
-.sticky{position:sticky;top:96px}
+/* 產品 */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:48px}
+.card{background:var(--glass);border:1px solid var(--edge);border-radius:2px;padding:32px;display:flex;flex-direction:column;gap:12px;transition:border-color .25s,box-shadow .25s,background .25s}
+.card:hover{background:var(--glass-2);border-color:var(--edge-strong);box-shadow:0 0 0 1px rgba(92,211,224,.25),0 12px 48px rgba(92,211,224,.12)}
+.card-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.card-id{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--mint);font-weight:600}
+.card-brand{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--muted)}
+.card h3{font-size:26px}
+.card p{color:var(--muted)}
+.card ul{padding-left:18px;font-size:14px;color:var(--muted)}
+.card-link{margin-top:auto;padding-top:10px;font-weight:700;text-decoration:none}
 
-.rows{border-bottom:1px solid var(--line)}
-.row{display:flex;flex-wrap:wrap;gap:12px 32px;padding:32px 0;border-top:1px solid var(--line);align-items:flex-start}
-.row-num{flex:0 0 48px;font-family:var(--mono);font-weight:600;color:var(--deep);font-size:15px;padding-top:6px}
-.row-title{flex:1 1 220px;min-width:0}
-.row-brand{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--deep);font-weight:600;margin-bottom:6px}
-.row-title h3{font-size:26px}
-.row-desc{flex:2 1 300px;min-width:0;color:var(--muted)}
-.row-desc ul{padding-left:18px;margin-top:10px;font-size:14px}
-.row-link{flex:0 0 auto;font-weight:700;text-decoration:none;white-space:nowrap;padding:6px 0}
-
-/* hydraulics */
-.blue{background:#E4EEF1;
-  background-image:linear-gradient(rgba(10,106,123,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(10,106,123,.09) 1px,transparent 1px);
-  background-size:32px 32px}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:48px}
-.step{background:#fff;border-top:4px solid var(--deep);padding:28px 28px 32px}
-.step-num{font-family:var(--mono);font-weight:600;font-size:44px;line-height:1;color:var(--deep)}
-.step h3{font-size:22px;margin:14px 0 12px}
+/* 水力計算 */
+.pipeline{border-top:1px solid var(--edge);border-bottom:1px solid var(--edge);background:rgba(8,24,38,.55)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:40px;margin-top:56px}
+.step{position:relative;background:var(--glass);border:1px solid var(--edge);padding:28px 28px 32px;border-radius:2px}
+.step-num{font-family:var(--mono);font-weight:600;font-size:52px;line-height:1;color:transparent;-webkit-text-stroke:1.5px var(--cyan)}
+.step h3{font-size:22px;margin:16px 0 12px}
 .step ul{padding-left:18px;color:var(--muted);font-size:15px}
-.cta-line{margin-top:40px;display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px}
+.step:not(:last-child)::after{content:"";position:absolute;top:56px;right:-40px;width:40px;border-top:2px dashed var(--cyan);animation:flow 3s linear infinite}
+.cta-line{margin-top:48px;display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px}
 .cta-line p{color:var(--muted)}
 
-/* applications */
-.app-row{display:flex;flex-wrap:wrap;background:#fff;border:1px solid var(--line);margin-top:32px}
+/* 應用 */
+.app-row{display:flex;flex-wrap:wrap;background:var(--glass);border:1px solid var(--edge);margin-top:32px;border-radius:2px}
 .app-row.rev{flex-direction:row-reverse}
-.app-img{flex:1 1 460px;min-width:0;position:relative;margin:0}
+.app-img{flex:1 1 460px;min-width:0;position:relative;margin:0;overflow:hidden}
 .app-img img{width:100%;height:100%;min-height:260px;object-fit:cover}
-.app-img figcaption{position:absolute;left:0;bottom:0;background:var(--navy);color:#fff;font-family:var(--mono);font-size:11px;letter-spacing:.1em;padding:6px 12px}
-.app-text{flex:1 1 360px;min-width:0;padding:44px 40px;display:flex;flex-direction:column;justify-content:center;gap:12px}
+.app-img::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(92,211,224,.07) 0 1px,transparent 1px 4px);box-shadow:inset 0 0 80px rgba(5,16,26,.55)}
+.app-img figcaption{position:absolute;left:0;bottom:0;z-index:1;background:rgba(5,16,26,.88);border-top:1px solid var(--edge);border-right:1px solid var(--edge);color:var(--cyan);font-family:var(--mono);font-size:11px;letter-spacing:.12em;padding:6px 12px}
+.app-text{flex:1 1 360px;min-width:0;padding:48px 40px;display:flex;flex-direction:column;justify-content:center;gap:12px}
 .app-text h3{font-size:28px}
 .app-text p:last-child{color:var(--muted)}
 
-/* contact */
-.dark{background:var(--navy);color:#fff}
-.dark .lead{color:var(--on-dark)}
+/* 聯絡 */
 .contact-grid{display:flex;flex-wrap:wrap;gap:56px}
 .contact-info{flex:1 1 360px;min-width:0}
-.bigtel{display:inline-block;font-size:clamp(30px,4.6vw,52px);font-weight:900;color:var(--cyan);text-decoration:none;line-height:1.15;margin:8px 0 28px}
-.bigtel:hover{color:#fff}
-.info-list{display:flex;flex-direction:column;gap:16px;border-top:1px solid #2C566A;padding-top:24px}
-.info-label{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--on-dark)}
-.info-value{margin-top:2px}
-.info-value a{color:#fff}
-.info-value a:hover{color:var(--cyan)}
-.form{flex:1 1 420px;min-width:0;background:#fff;color:var(--ink);padding:36px;display:flex;flex-direction:column;gap:20px;border-top:4px solid var(--cyan)}
+.bigtel{display:inline-block;font-size:clamp(32px,4.8vw,56px);font-weight:900;color:var(--cyan);text-decoration:none;line-height:1.15;margin:10px 0 30px;text-shadow:0 0 28px rgba(92,211,224,.5)}
+.bigtel:hover{color:var(--mint)}
+.info-list{display:flex;flex-direction:column;gap:16px;border-top:1px solid var(--edge);padding-top:24px}
+.info-label{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--cyan)}
+.info-value{margin-top:2px;color:var(--text)}
+.info-value a{color:var(--text)}
+.info-value a:hover{color:var(--mint)}
+.form{flex:1 1 420px;min-width:0;background:rgba(8,24,38,.82);border:1px solid var(--edge);padding:36px;display:flex;flex-direction:column;gap:20px;border-radius:2px;box-shadow:0 0 60px rgba(92,211,224,.08)}
 .form h3{font-size:22px}
 .field{display:flex;flex-direction:column;gap:6px;min-width:0}
 .field-row{display:flex;flex-wrap:wrap;gap:20px}
 .field-row .field{flex:1 1 180px}
 .field label,.legend{font-size:14px;font-weight:700}
-.field input,.field textarea{border:1px solid var(--field);border-radius:2px;padding:0 12px;font-size:16px;font-family:inherit;color:var(--ink);background:#fff}
+.field input,.field textarea{border:1px solid var(--field);border-radius:3px;padding:0 12px;font-size:16px;font-family:inherit;color:var(--text);background:rgba(255,255,255,.06)}
 .field input{height:46px}
 .field textarea{padding:10px 12px;resize:vertical;min-height:110px}
+.field input:focus,.field textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(92,211,224,.2);outline:none}
+.field textarea::placeholder{color:#7F98A2}
 fieldset{border:0;padding:0;margin:0;min-width:0}
 .legend{padding:0;margin-bottom:6px}
 .check{display:flex;align-items:center;gap:10px;min-height:44px;font-size:15px;cursor:pointer}
-.check input{width:20px;height:20px;margin:0;accent-color:var(--deep)}
+.check input{width:20px;height:20px;margin:0;accent-color:var(--cyan)}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .form-status{font-size:14px;min-height:1.5em}
-.form-status.error{color:#9B2C1F}
-.form-status.ok{color:var(--deep-dark)}
+.form-status.error{color:var(--err)}
+.form-status.ok{color:var(--mint)}
 .form .btn{width:100%;min-height:50px}
 
-.site-footer{background:#07151D;color:var(--on-dark);padding:36px 0;font-size:13px}
+.site-footer{border-top:1px solid var(--edge);color:var(--muted);padding:36px 0;font-size:13px;background:rgba(3,10,16,.8)}
 .site-footer p+p{margin-top:8px}
 
-@media (max-width:900px){
-  .split{grid-template-columns:minmax(0,1fr);gap:32px}
-  .sticky{position:static}
-}
 @media (max-width:860px){
   .menu-btn{display:block}
   .nav{flex-wrap:wrap;padding:10px 0}
   .brand-en{display:none}
   .nav-links{display:none;flex-direction:column;align-items:stretch;gap:0;width:100%;padding:8px 0 16px}
   .nav-links.open{display:flex}
-  .nav-links a{display:block;padding:12px 4px;border-bottom:1px solid #1F4252}
+  .nav-links a{display:block;padding:12px 4px;border-bottom:1px solid var(--edge)}
   .nav-links .nav-cta{margin-top:12px;text-align:center}
-  .hero-grid{padding:56px 0 64px}
+  .hero-grid{padding:56px 0 56px}
   .section{padding:64px 0}
   .app-text{padding:28px 24px}
   .form{padding:24px}
   .brandbar-item{flex-basis:45%;border-left:0;padding-left:0}
+  .step:not(:last-child)::after{display:none}
+  .steps{gap:20px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .dot,.ray,.pulse-ring,.step::after{animation:none!important}
+  .pulse-ring{opacity:.5}
+  .btn,.card{transition:none}
 }
 </style>
 </head>
@@ -209,6 +232,7 @@ fieldset{border:0;padding:0;margin:0;min-width:0}
 <header class="site-header">
   <div class="wrap nav">
     <a class="brand" href="#top">
+      <span class="dot" aria-hidden="true"></span>
       <span class="brand-name">滙凱實業</span>
       <span class="brand-en">HONY KON</span>
     </a>
@@ -230,33 +254,36 @@ fieldset{border:0;padding:0;margin:0;min-width:0}
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="mono">Smart Irrigation / Taipei</p>
-      <h1>水，要算過<br><span>才澆得準。</span></h1>
+      <p class="mono tag">Smart Irrigation / Taipei</p>
+      <h1>水，要算過<br><span class="grad">才澆得準。</span></h1>
       <p class="hero-sub">滙凱實業供應 Yardian 智慧控制器，以及 Hunter、Rain Bird、Toro 噴頭與電磁閥，並提供水力計算支援。</p>
       <div class="hero-actions">
         <a class="btn btn-cyan" href="#contact">取得規格與報價</a>
         <a class="btn btn-ghost" href="#hydraulics">水力計算怎麼做</a>
       </div>
     </div>
-    <figure class="hero-art" style="margin:0">
-      <svg viewBox="0 0 480 360" role="img" aria-label="噴頭灑水範圍示意圖" width="100%" height="auto">
-        <g fill="none" stroke="#5CD3E0" stroke-linecap="round">
-          <path d="M162.1 285A90 90 0 0 1 317.9 285" stroke-width="2.5"/>
-          <path d="M110.1 255A150 150 0 0 1 369.9 255" stroke-width="2.5" opacity=".8"/>
-          <path d="M58.1 225A210 210 0 0 1 421.9 225" stroke-width="2.5" opacity=".6"/>
-          <path d="M6.2 195A270 270 0 0 1 473.8 195" stroke-width="2.5" opacity=".4"/>
-          <g stroke-width="1.5" stroke-dasharray="3 7" opacity=".7">
-            <path d="M240 330L6.2 195"/>
-            <path d="M240 330L105 96.2"/>
-            <path d="M240 330L240 60"/>
-            <path d="M240 330L375 96.2"/>
-            <path d="M240 330L473.8 195"/>
-          </g>
-          <path d="M20 330H460" stroke="#A9BFC7" stroke-width="2"/>
-        </g>
-        <circle cx="240" cy="330" r="7" fill="#5CD3E0"/>
-        <rect x="236" y="330" width="8" height="14" fill="#A9BFC7"/>
-      </svg>
+    <figure class="hero-art">
+      <div class="hero-frame hud">
+        <svg viewBox="-24 0 528 360" role="img" aria-label="噴頭灑水範圍示意圖" width="100%" height="auto">
+          <path class="arc" d="M162.1 285A90 90 0 0 1 317.9 285"/>
+          <path class="arc" d="M110.1 255A150 150 0 0 1 369.9 255" opacity=".8"/>
+          <path class="arc" d="M58.1 225A210 210 0 0 1 421.9 225" opacity=".6"/>
+          <path class="arc" d="M6.2 195A270 270 0 0 1 473.8 195" opacity=".4"/>
+          <path class="ray" d="M240 330L6.2 195"/>
+          <path class="ray" d="M240 330L105 96.2"/>
+          <path class="ray" d="M240 330L240 60"/>
+          <path class="ray" d="M240 330L375 96.2"/>
+          <path class="ray" d="M240 330L473.8 195"/>
+          <path class="ground" d="M20 330H460"/>
+          <circle class="pulse-ring" cx="240" cy="330" r="7"/>
+          <circle cx="240" cy="330" r="7" fill="#7CF5C8"/>
+          <rect x="236" y="330" width="8" height="14" fill="#9DB4BD"/>
+          <text class="svg-label" x="156" y="289" text-anchor="end">R1</text>
+          <text class="svg-label" x="104" y="259" text-anchor="end">R2</text>
+          <text class="svg-label" x="52" y="229" text-anchor="end">R3</text>
+          <text class="svg-label" x="0" y="199" text-anchor="end">R4</text>
+        </svg>
+      </div>
       <figcaption>FIG.01 噴頭覆蓋範圍示意</figcaption>
     </figure>
   </div>
@@ -271,68 +298,46 @@ fieldset{border:0;padding:0;margin:0;min-width:0}
 </section>
 
 <section class="section" id="products">
-  <div class="wrap split">
-    <div class="sticky">
-      <p class="mono tag">01 / 產品</p>
-      <h2 class="h2">控制器、噴頭、電磁閥，同一套配齊</h2>
-      <p class="lead">依案場規模與用途選配。需要型號對照、規格書或選型表，直接詢價。</p>
-    </div>
-    <div class="rows">
-      <div class="row">
-        <span class="row-num">A</span>
-        <div class="row-title">
-          <p class="row-brand">YARDIAN</p>
-          <h3>智慧控制器</h3>
-        </div>
-        <div class="row-desc">
-          <p>支援 Wi-Fi 與 RJ45 有線雙連線，連動氣象資料，下雨自動停止灌溉，並可用手機 App 遠端操控各區出水。</p>
-          <ul><li>住宅庭園、社區中庭</li><li>需要遠端管理的案場</li></ul>
-        </div>
-        <a class="row-link" href="#contact">詢價 →</a>
-      </div>
-      <div class="row">
-        <span class="row-num">B</span>
-        <div class="row-title">
-          <p class="row-brand">HUNTER · RAIN BIRD</p>
-          <h3>地埋彈出式噴頭</h3>
-        </div>
-        <div class="row-desc">
-          <p>不灌溉時隱藏於草坪下，不影響割草與行走；水壓驅動時彈出，抗風性佳，扇形角度可調。</p>
-          <ul><li>草坪、花圃、景觀綠地</li></ul>
-        </div>
-        <a class="row-link" href="#contact">索取選型表 →</a>
-      </div>
-      <div class="row">
-        <span class="row-num">C</span>
-        <div class="row-title">
-          <p class="row-brand">RAIN BIRD · HUNTER · TORO</p>
-          <h3>電磁閥系列</h3>
-        </div>
-        <div class="row-desc">
-          <p>依分區流量與管徑選配口徑，搭配控制器逐區啟閉，讓各區出水穩定一致。</p>
-          <ul><li>分區控制、工程配管</li></ul>
-        </div>
-        <a class="row-link" href="#contact">詢價 →</a>
-      </div>
-      <div class="row">
-        <span class="row-num">D</span>
-        <div class="row-title">
-          <p class="row-brand">TORO</p>
-          <h3>球場與大面積設備</h3>
-        </div>
-        <div class="row-desc">
-          <p>高階球場與大面積草坪使用的噴灌設備，適合對出水均勻度與耐用度要求高的專案。</p>
-          <ul><li>球場、公園、大型綠地</li></ul>
-        </div>
-        <a class="row-link" href="#contact">詢價 →</a>
-      </div>
+  <div class="wrap">
+    <p class="mono tag">SYS.01 / 產品</p>
+    <h2 class="h2">控制器、噴頭、電磁閥，<br>同一套配齊</h2>
+    <p class="lead">依案場規模與用途選配。需要型號對照、規格書或選型表，直接詢價。</p>
+    <div class="cards">
+      <article class="card hud">
+        <div class="card-top"><span class="card-id">A</span><span class="card-brand">YARDIAN</span></div>
+        <h3>智慧控制器</h3>
+        <p>支援 Wi-Fi 與 RJ45 有線雙連線，連動氣象資料，下雨自動停止灌溉，並可用手機 App 遠端操控各區出水。</p>
+        <ul><li>住宅庭園、社區中庭</li><li>需要遠端管理的案場</li></ul>
+        <a class="card-link" href="#contact">詢價 →</a>
+      </article>
+      <article class="card hud">
+        <div class="card-top"><span class="card-id">B</span><span class="card-brand">HUNTER · RAIN BIRD</span></div>
+        <h3>地埋彈出式噴頭</h3>
+        <p>不灌溉時隱藏於草坪下，不影響割草與行走；水壓驅動時彈出，抗風性佳，扇形角度可調。</p>
+        <ul><li>草坪、花圃、景觀綠地</li></ul>
+        <a class="card-link" href="#contact">索取選型表 →</a>
+      </article>
+      <article class="card hud">
+        <div class="card-top"><span class="card-id">C</span><span class="card-brand">RAIN BIRD · HUNTER · TORO</span></div>
+        <h3>電磁閥系列</h3>
+        <p>依分區流量與管徑選配口徑，搭配控制器逐區啟閉，讓各區出水穩定一致。</p>
+        <ul><li>分區控制、工程配管</li></ul>
+        <a class="card-link" href="#contact">詢價 →</a>
+      </article>
+      <article class="card hud">
+        <div class="card-top"><span class="card-id">D</span><span class="card-brand">TORO</span></div>
+        <h3>球場與大面積設備</h3>
+        <p>高階球場與大面積草坪使用的噴灌設備，適合對出水均勻度與耐用度要求高的專案。</p>
+        <ul><li>球場、公園、大型綠地</li></ul>
+        <a class="card-link" href="#contact">詢價 →</a>
+      </article>
     </div>
   </div>
 </section>
 
-<section class="section blue" id="hydraulics">
+<section class="section pipeline" id="hydraulics">
   <div class="wrap">
-    <p class="mono tag">02 / 水力計算</p>
+    <p class="mono tag">SYS.02 / 水力計算</p>
     <h2 class="h2">不只供貨，也幫您算好水力</h2>
     <p class="lead">依案場的水壓與流量需求（GPM / LPM），計算管路壓降與流速，讓每支噴頭都能發揮原廠設計的效能。</p>
     <div class="steps">
@@ -366,7 +371,7 @@ fieldset{border:0;padding:0;margin:0;min-width:0}
       </div>
     </div>
     <div class="cta-line">
-      <a class="btn btn-navy" href="#contact">提出專案需求</a>
+      <a class="btn btn-cyan" href="#contact">提出專案需求</a>
       <p>適合景觀設計師、水電承包商與業主，在報價前先確認系統可行。</p>
     </div>
   </div>
@@ -374,11 +379,11 @@ fieldset{border:0;padding:0;margin:0;min-width:0}
 
 <section class="section" id="solutions">
   <div class="wrap">
-    <p class="mono tag">03 / 應用領域</p>
+    <p class="mono tag">SYS.03 / 應用領域</p>
     <h2 class="h2">從住宅庭園到屋頂綠化</h2>
     <p class="lead">以下為應用情境示意圖，用來說明系統在不同場域的配置方式。</p>
 
-    <div class="app-row">
+    <div class="app-row hud">
       <figure class="app-img">
         <img src="case1.webp" width="1200" height="655" loading="lazy" alt="別墅庭園草坪上地埋噴頭灑水的情境示意圖">
         <figcaption>情境示意圖</figcaption>
@@ -390,7 +395,7 @@ fieldset{border:0;padding:0;margin:0;min-width:0}
       </div>
     </div>
 
-    <div class="app-row rev">
+    <div class="app-row rev hud">
       <figure class="app-img">
         <img src="case2.webp" width="1200" height="655" loading="lazy" alt="高樓屋頂花園噴灌與控制系統配置的情境示意圖">
         <figcaption>情境示意圖</figcaption>
@@ -405,10 +410,10 @@ fieldset{border:0;padding:0;margin:0;min-width:0}
   </div>
 </section>
 
-<section class="section dark" id="contact">
+<section class="section pipeline" id="contact">
   <div class="wrap contact-grid">
     <div class="contact-info">
-      <p class="mono tag">04 / 詢價聯絡</p>
+      <p class="mono tag">SYS.04 / 詢價聯絡</p>
       <h2 class="h2">告訴我們您的案場需求</h2>
       <p class="lead">設備零售或整案規劃都歡迎。已有型號（例如 Hunter PGP、Yardian）請填在備註。</p>
       <a class="bigtel" href="tel:+886227760766">02-2776-0766</a>
@@ -436,7 +441,7 @@ fieldset{border:0;padding:0;margin:0;min-width:0}
       </div>
     </div>
 
-    <form class="form" id="inquiry-form" novalidate>
+    <form class="form hud" id="inquiry-form" novalidate>
       <h3>規格詢價與專案需求</h3>
       <div class="field">
         <label for="f-name">公司或業主姓名 *</label>
@@ -467,7 +472,7 @@ fieldset{border:0;padding:0;margin:0;min-width:0}
         <label>請勿填寫<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
       </div>
       <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-      <button class="btn btn-navy" type="submit">送出詢價需求</button>
+      <button class="btn btn-cyan" type="submit">送出詢價需求</button>
     </form>
   </div>
 </section>
